@@ -28,3 +28,7 @@ the "Product" schema.
 
 Your application should read the given data files (see "The Data") and return a JSON structure with a list of products 
 as defined in the Swagger definition.
+
+## Web API urls
+- /json
+- /csv

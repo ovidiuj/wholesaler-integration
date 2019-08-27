@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  wholesaler:
+    build: ./
+    restart: 'always'
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./:/var/www
+      - ./docker/apache/site.conf:/etc/apache2/sites-enabled/001-default.conf
+      - ./docker/apache/php.ini-develop:/usr/local/etc/php/php.ini
+    container_name: wholesaler
