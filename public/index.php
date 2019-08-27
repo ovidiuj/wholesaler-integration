@@ -1,50 +1,32 @@
 <?php
 
-use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
-use Symfony\Component\Config\Loader\LoaderInterface;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\HttpFoundation\JsonResponse;
+use kollex\Kernel;
+use Symfony\Component\Debug\Debug;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\Kernel as BaseKernel;
-use Symfony\Component\Routing\RouteCollectionBuilder;
 
-require __DIR__.'/../vendor/autoload.php';
+require dirname(__DIR__).'/config/bootstrap.php';
 
-class Kernel extends BaseKernel
-{
-    use MicroKernelTrait;
+if ($_SERVER['APP_DEBUG']) {
+    umask(0000);
 
-    public function registerBundles()
-    {
-        return [
-            new Symfony\Bundle\FrameworkBundle\FrameworkBundle()
-        ];
-    }
-
-    protected function configureContainer(ContainerBuilder $c, LoaderInterface $loader)
-    {
-        // PHP equivalent of config/packages/framework.yaml
-        $c->loadFromExtension('framework', [
-            'secret' => 'S0ME_SECRET'
-        ]);
-    }
-
-    protected function configureRoutes(RouteCollectionBuilder $routes)
-    {
-        // kernel is a service that points to this class
-        // optional 3rd argument is the route name
-        $routes->add('/random/{limit}', 'kernel::randomNumber');
-    }
-
-    public function randomNumber($limit)
-    {
-        return new JsonResponse([
-            'number' => random_int(0, $limit),
-        ]);
-    }
+    Debug::enable();
 }
 
-$kernel = new Kernel('dev', true);
+if ($trustedProxies = $_SERVER['TRUSTED_PROXIES'] ?? $_ENV['TRUSTED_PROXIES'] ?? false) {
+    Request::setTrustedProxies(explode(',', $trustedProxies), Request::HEADER_X_FORWARDED_ALL ^ Request::HEADER_X_FORWARDED_HOST);
+}
+
+if ($trustedHosts = $_SERVER['TRUSTED_HOSTS'] ?? $_ENV['TRUSTED_HOSTS'] ?? false) {
+    Request::setTrustedHosts([$trustedHosts]);
+}
+
+function pa($arr) {
+    echo '<pre>';
+    print_r($arr);
+    echo '</pre>';
+}
+
+$kernel = new Kernel($_SERVER['APP_ENV'], (bool) $_SERVER['APP_DEBUG']);
 $request = Request::createFromGlobals();
 $response = $kernel->handle($request);
 $response->send();

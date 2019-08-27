@@ -1,7 +1,7 @@
 <?php
 
 
-namespace kollex\Dataprovider\Assortment;
+namespace kollex\kollex\Dataprovider\Assortment;
 
 
 interface DataProvider

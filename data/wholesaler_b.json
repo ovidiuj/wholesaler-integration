@@ -6,7 +6,7 @@
       "BRAND": "Drinks Corp.",
       "NAME": "Soda Drink, 12x 1L",
       "PACKAGE": "case",
-      "ADDITIONAL_INFO": "",
+      "ADDITIONAL_INFO": "liters",
       "VESSEL": "bottle",
       "LITERS_PER_BOTTLE": "1",
       "BOTTLE_AMOUNT": "12"
@@ -17,7 +17,7 @@
       "BRAND": "Drinks Corp.",
       "NAME": "Orange Drink, 20x 0.5L",
       "PACKAGE": "case",
-      "ADDITIONAL_INFO": "",
+      "ADDITIONAL_INFO": "liters",
       "VESSEL": "bottle",
       "LITERS_PER_BOTTLE": "0,5",
       "BOTTLE_AMOUNT": "20"
@@ -28,7 +28,7 @@
       "BRAND": "Drinks Corp.",
       "NAME": "Beer, 6x 0.5L",
       "PACKAGE": "box",
-      "ADDITIONAL_INFO": "",
+      "ADDITIONAL_INFO": "liters",
       "VESSEL": "can",
       "LITERS_PER_BOTTLE": "0,5",
       "BOTTLE_AMOUNT": "6"
@@ -39,7 +39,7 @@
       "BRAND": "Drinks Corp.",
       "NAME": "Champagne",
       "PACKAGE": "BOTTLE",
-      "ADDITIONAL_INFO": "",
+      "ADDITIONAL_INFO": "liters",
       "VESSEL": "bottle",
       "LITERS_PER_BOTTLE": "0,75",
       "BOTTLE_AMOUNT": "1"

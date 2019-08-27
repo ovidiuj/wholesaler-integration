@@ -1,0 +1,11 @@
+index:
+  path: /
+  controller: kollex\Controller\DefaultController::index
+
+jsonFormat:
+  path: /json
+  controller: kollex\Controller\DefaultController::jsonFormat
+
+csvFormat:
+  path: /csv
+  controller: kollex\Controller\DefaultController::csvFormat

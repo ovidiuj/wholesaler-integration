@@ -1,2 +1,5 @@
 .idea
 /vendor
+access.log
+error.log
+/var/*
