@@ -19,7 +19,6 @@ class CsvService extends AbstractService
 
     /**
      * @return array
-     * @throws SerializerException
      */
     public function getProducts(): array
     {

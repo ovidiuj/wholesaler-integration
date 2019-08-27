@@ -41,16 +41,6 @@ abstract class AbstractService implements DataProvider
     }
 
     /**
-     * @return array
-     */
-    abstract public function getProducts(): array;
-
-    /**
-     * @return string
-     */
-    abstract protected function getJsonContent(): string;
-
-    /**
      * @param array $data
      * @return string
      */
@@ -100,4 +90,14 @@ abstract class AbstractService implements DataProvider
         }
         return $productDTO;
     }
+
+    /**
+     * @return array
+     */
+    abstract public function getProducts(): array;
+
+    /**
+     * @return string
+     */
+    abstract protected function getJsonContent(): string;
 }
