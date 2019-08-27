@@ -17,7 +17,7 @@
         <env name="RESET" value="0" />
         <env name="SYMFONY_DEPRECATIONS_HELPER" value="0" /> <!-- https://github.com/symfony/symfony/pull/24867 -->
         <env name="APP_ENV" value="test"/>
-        <server name="KERNEL_CLASS" value="App\Kernel" />
+        <server name="KERNEL_CLASS" value="kollex\Kernel" />
     </php>
 
     <listeners>

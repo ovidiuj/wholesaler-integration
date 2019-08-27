@@ -3,3 +3,4 @@
 access.log
 error.log
 /var/*
+.phpunit.result.cache
